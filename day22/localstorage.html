@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Local storage</title>
+    </head>
+
+    <body>
+        <input type="text" id = "nameInput" placeholder="Enter your name">
+        <button onclick="saveToLocalStorage()">Save Data</button>
+        <button onclick="getFromLocalStorage()">Get the Data</button>
+        <button onclick="removeFromLocalStorage()">Remove the data</button>
+
+        <p id = "display"></p>
+
+        <script>
+            function saveToLocalStorage() {
+                let name = document.getElementById("nameInput").value;
+                localStorage.setItem("username", name)
+                alert("Your name is stored in the local storage")
+        
+            }
+
+            function getFromLocalStorage() {
+                let storedName = localStorage.getItem("username"); //retrieving the data
+                if(storedName){
+                    document.getElementById('display').innerText = "Stored name is: " + storedName
+                } else {
+                    alert("no data is found")
+                }
+
+            }
+
+            function removeFromLocalStorage() {
+                localStorage.removeItem("username");
+                document.getElementById('display').innerText = "";
+                alert("Name is removed from the local storage")
+
+            }
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+ local storage and session storage in javascript used to store the key-value pairs of the user's information
+
+
+ local storage...if we store the user data using local storage, till we delete manually it will present..
+even if we close our browser or open new window our day will present
+
+session storage....keeps the data only for the duration of the session..(it will be cleared when the page is closed)
+
+-->
+
