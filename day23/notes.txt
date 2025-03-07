@@ -67,3 +67,5 @@ import {component} form angular;
     selector: "app-hello
     template: "<h1>Hello world</h1>
 })
+
+

@@ -1,0 +1,5 @@
+vite setup
+npm create vite@latest sample-app...choose react and javascript
+cd sample-app
+  npm install
+  npm run dev
