@@ -1,0 +1,4 @@
+create folder -> navigate to folder- > open ternimal -> new ternimal 
+npx create-react-app sample-app
+cd sample-app
+npm start
