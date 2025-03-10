@@ -1,0 +1,13 @@
+html js -> jsx in react
+
+
+what is JSX?
+javascript XML which will allows us to write both HTML and Javascript with in the same js file in concise manner
+
+
+Rules of jsx : we have to remember few rules w r t JSX
+1) in react always create the file name with capital
+2)while create the function(if you are creating the component) then function name should be capital letter
+3) in jsx all the elements should contains one parent element or tag, so we can react fragments
+4) jsx elements must be closed,,,,closing tag
+5) attribute name should be in camelcase

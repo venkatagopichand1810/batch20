@@ -1,0 +1,3 @@
+// components is the builing block of react appliacation.
+// component is reusable independent piece of UI used for rendering the part of the USER interface.
+// functional components and one class components

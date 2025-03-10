@@ -1,0 +1,17 @@
+#buttonStyle {
+    color: green;
+    background-color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.buttonStyle1 {
+    color: orange;
+    background-color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+}
