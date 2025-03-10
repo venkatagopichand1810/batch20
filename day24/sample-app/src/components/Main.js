@@ -1,9 +1,9 @@
 function Main() {
     return (
         <>
-            <Main>
+            <main>
                 <h1>Welcome to GUVI REACT LEARNING</h1>
-            </Main>
+            </main>
         </>
     )
 
