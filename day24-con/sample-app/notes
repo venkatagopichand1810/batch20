@@ -1,0 +1,35 @@
+props (properties): pass data from parent to child component
+//props allows components to communicate with each other and share the data in a unidirectional way
+
+
+key props
+props are read -only (immutable)..child component cannot modify the props it recieves
+props can be any data type --> string, number, boolean, array, object, funciton etc
+props are accessible in a child component using "props" or destructuring
+
+
+//props drilling.... is the process of passing the data from the parent component to deeply nested child components
+
+child to parent...................................................................................
+
+
+//we can also pass the data from child to parent,, we have to pass a callback function
+
+
+parent to child .....stings, boolean, numberss
+
+child to parent --> callback as a prop
+
+
+
+
+
+what is react
+folder structre of react
+how react works behind the screens 
+jsx
+how to write javascript in react
+differnt ways applying styles 
+parent to child 
+child to parent 
+props drilling
