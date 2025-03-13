@@ -1,0 +1,17 @@
+what is hook...Hooks are the special functions that we can use in our react application...
+
+
+i wanted to maintain state of the applications... useState hook
+useContext ...hook
+
+
+react 16
+function component ;;props..ther is no state   stateless 
+
+class component........state of the app must and should...stateful
+
+
+
+react 18...
+function component....stateful.. usestate.....we can change the values
+class component ...stateful.....we cab change the values
