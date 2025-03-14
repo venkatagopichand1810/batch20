@@ -1,0 +1,10 @@
+unconditional forms:
+Forms that rely on the HTML and DOM for handling input and submission (native behvaior)
+browser handles the form submission directly
+browser is going to mangage the state and submission process
+ref
+
+
+conditional forms: 
+Forms that are controlled by the react's state...Input values are stored and managed in the components state useState.
+
