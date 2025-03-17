@@ -1,0 +1,11 @@
+props -> passing data from parent to child and child to parent
+
+state -> mananging the component state using useState
+
+useEffect -> handling the API data
+
+key prop -> we are going to use in array when wanted to iterate the array data
+
+array method...useState..map, filter, reduce, push, pop, slice SecurityPolicyViolationEvent
+
+forms 
