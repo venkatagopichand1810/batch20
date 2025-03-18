@@ -1,0 +1,5 @@
+we need to install the react routing 
+npm install react-router-dom
+
+React router DOM allows to handle the routing in the react Application..it will enables SPA we can navigate to other pages without reloading the page..
+
