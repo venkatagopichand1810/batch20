@@ -1,0 +1,13 @@
+useReducer is hook used to manage the complex state.
+
+useReducer will take two arugments
+
+1) Reducer function ... This function takes current state and it will do some action and returns the new state
+
+2) Initial state ..Inital state of the value
+
+const[state, dispatch] = useReducer(reducer, initialState)
+
+3) state: the Current state
+
+4) dispatch: A function sends actions to the reducer

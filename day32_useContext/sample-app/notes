@@ -1,0 +1,7 @@
+state management to track, update and share the data accross different components.
+
+centralize state Intead of managing the state locally in each component, state management allows us to store the state in one central place
+
+avoid prop drilling...when data needs to be passed from parent to deeply nested child components, prop drilling
+
+improve performance....
