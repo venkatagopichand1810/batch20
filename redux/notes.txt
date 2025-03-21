@@ -1,0 +1,53 @@
+Redux is the statement management library for the javacript applications.
+Reduex helps us to manage the centralized state
+
+key concepts of Redux
+
+1) State...
+    State refers the data that our application need to keep track
+    Redux stores the state in a single object called store
+
+2) Actions...
+   Actions are plain javacript objects that tell what actions or what happend in the application
+
+   Every action should have the type 
+
+3) Reducers
+    Reducer is the function that takes current state ands an action, and returns the new state
+
+4) Store...
+    The store hold the entire state of the application
+
+5) Dispatch
+    dispatch() is used to send an action to the Reducer
+
+6) Selectors
+    Selectors are functions used to extract the specific parts of the state
+
+
+
+how redux works
+1) dispatch an action
+2) reducer process the action
+3) state is going to update
+4) react component will render
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+useState -> simple states
+useContext -> complex states
+redux -> bigger complex allication state
