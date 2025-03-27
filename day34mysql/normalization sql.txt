@@ -1,0 +1,50 @@
+Normalization is the process of organiziang the data in the relational database to reduce the redundancy and improve the data integrity...
+
+
+to avoid the same dta in muliple places
+save storage....
+
+1NF first Normalization form
+2nf second Normalization form 
+3nf third Normalization form 
+bcnf boyce codd normal form 
+
+
+1nf 
+
+all columns contan atomic values 
+each row is unqiue
+each column contains the single values
+
+
+before 1NF
+
+CREATE table students ( 
+  studentID int primary key,
+  name varchar(100), 
+  phone_numbers varchar(100), 
+  address varchar(100),A
+);
+
+insert into students (studentID, name, phone_numbers, address)
+VALUES
+(1, "ram", "987451287, 98624874454", "chennai"),
+(2, "venkat", "987451784", "bangalore");
+
+select * from students;
+
+CREATE table students_1nf ( 
+  studentID int,
+  name varchar(100), 
+  phone_number varchar(100), 
+  address varchar(100),
+  primary key(studentID, phone_number)
+);
+
+insert into students_1nf (studentID, name, phone_number, address)
+VALUES
+(1, "ram", "987451287", "chennai"), 
+(1, "ram", "986248744", "chennai"), 
+(2, "venkat", "987451784", "bangalore");
+
+select * from students_1nf;
