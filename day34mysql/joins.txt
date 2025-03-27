@@ -1,0 +1,23 @@
+join in mysql
+
+JOIN is used to combine rows from two or more tables based on the related colmun.
+
+Types of joins
+
+INNER JOIN: Returns only the matching rows from both the tables
+
+
+LEFT JOIN (LEFT OUTER JOIN): Returns all the rows from the left table and the matching rows from the right table,
+incase if there is no match, then it will return NULL
+
+
+RIGHT JOIN(RIGHT OUTER JOIN):Returns all the rows from the right table and the matching rows from the left table,
+incase if there is no match, then it will return NULL
+
+
+FULL OUTER JOIN: Returns ros when there is a match in either the left or the right table (UNION)
+
+
+CROSS JOIN: return catesian product of two tables, comining all the rows from the left table with all the rows from the right table
+
+SELF JOIN -> joins the table to itself

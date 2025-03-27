@@ -1,0 +1,74 @@
+create table employees ( 
+  employee_id INT primary key,
+  name varchar(50),
+  department_id int 
+  );
+  
+  create table departments( 
+    department_id int primary key,
+    deparment_name varchar(50)
+  );
+ 
+ insert into employees (employee_id, name, department_id) 
+ VALUES
+ (1, "rama", 1), 
+ (2, "john", 2), 
+ (3, "chris", 1),
+ (4, "shiva", 3),
+ (5, "dhoni", 5);
+ 
+ INSERT INTO departments(department_id, deparment_name) VALUES 
+ (1, "HR"),
+ (2, "FINANACE"),
+ (3, "ENGINEERING");
+ 
+ -- emp id, name, deparment_name
+ 
+ -- inner join
+ select employees.employee_id, employees.name, departments.deparment_name 
+  from employees 
+  INNER join departments ON employees.department_id = departments.department_id;
+ 
+ 
+ -- left join
+select employees.employee_id, employees.name, departments.deparment_name 
+  from employees 
+  left join departments ON employees.department_id = departments.department_id;
+ 
+  -- right join
+ select employees.employee_id, employees.name, departments.deparment_name 
+   from employees 
+  right join departments ON employees.department_id = departments.department_id;
+
+
+
+ -- full outer join
+ select employees.employee_id, employees.name, departments.deparment_name 
+ from employees 
+  left join departments ON employees.department_id = departments.department_id
+  
+  union 
+  
+   select employees.employee_id, employees.name, departments.deparment_name 
+   from employees 
+ right join departments ON employees.department_id = departments.department_id;
+
+
+--  cross join
+ 
+ SELECT employees.name, departments.deparment_name from employees cross join departments;
+  
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+
+   
+   
+                        
+               

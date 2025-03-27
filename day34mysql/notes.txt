@@ -1,0 +1,15 @@
+DB model design
+
+
+users
+
+categories
+
+products
+
+orders
+
+
+order_items
+
+payments

@@ -1,0 +1,31 @@
+RDBMS....
+
+Relations database is based on the relational model where data is stores in the tables rows and columns
+
+tables
+SQL
+SCHEMA
+
+mysql, sqllite
+
+
+advantages...
+accuracy is high
+strong support for complex queries and data relationship
+primary key, foreign key
+
+
+disadvantages
+
+poor performance with large datasets due to complex joins
+
+
+Non - relational database (NoSQL)
+does not use tabular structure but instead data is stored in key-value pair, documnets format
+
+
+advanges
+
+fast and efficient for large datasets 
+more flexible 
+easy integrate 

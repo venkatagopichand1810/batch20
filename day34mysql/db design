@@ -1,0 +1,183 @@
+CREATE TABLE users (
+  user_id int AUTO_INCREMENT PRIMARY KEY,
+  name varchar(100) NOT NULL,
+  email varchar(150) unique not null,
+  password varchar(100) not null,
+  created_at timestamp default current_timestamp
+ )AUTO_INCREMENT = 1;
+ 
+ create table categories ( 
+   category_id int auto_increment primary key,
+   name varchar(100) not null,
+   description text
+ );
+ 
+ create table products (
+   product_id INT auto_increment primary key,
+   name varchar(150) not null,
+   description text,
+   price DECIMAL(10, 2),
+   stock_quantity int not null,
+   category_id int 
+ );
+   
+ create table orders ( 
+  order_id int auto_increment primary key, 
+  user_id int, 
+  order_date timestamp default current_timestamp,
+  status varchar(50) default "pending"
+ );
+   
+ create table order_items(
+   order_item_id int auto_increment primary key,
+   order_id int, 
+   product_id int, 
+   quantity int not null,
+   price Decimal(10, 2) not null  
+ );
+ 
+ create table payments ( 
+   payment_Id int auto_increment primary key,
+   order_id int,
+   amount Decimal(10, 2) not null,
+   payment_method varchar(50) not null,
+   payment_date timestamp default current_timestamp
+   
+ );
+ 
+ -- users
+ insert into users (name,email, password) values 
+
+ ("rama", "rama@gmail.com", "rama1234"),
+ ("venkat", "venkat@gmail.com", "venkat123"),
+ ("smith", "smith@gmail.com", "smith1234"),
+ ("dhoni", "dhoni@gmail.com", "dhoni1234");
+ 
+
+ 
+ -- categories
+ 
+ insert into categories (name, description) values 
+
+ ("Electronics", "Electronics gadgets and devices"),
+ ("clothing", "Mens and womens wear along with kids wear");
+ 
+
+ 
+ -- products table
+  
+ insert into products (name, description, price, stock_quantity, category_id) values 
+
+ ("Smartphone", "Latest model smartphone", 29999.99, 50, 1),
+ ("Laptop", "High performance laptop", 1999, 20, 1),
+ ("T-shirt", "cotton T-shirt", 3999.79, 40, 2);
+ 
+ 
+ -- orders
+ 
+ insert into orders (user_id, status) values 
+ (1, "Pending"),
+ (2, "Completed");
+ 
+ 
+ -- order_items
+ 
+  insert into order_items (order_id, product_id, quantity, price) values 
+
+ (1, 1, 2, 1699.99),
+ (2, 2, 1, 1199.99);
+
+
+  insert into payments (order_id, amount, payment_method) values 
+
+ (2, 1199.99, "Online Phonepe UPI"),
+ (1, 299.99, "Debit card");
+ 
+ SELECT * from users;
+  
+ SELECT * from categories;
+ 
+ SELECT * from products;
+ 
+  
+ SELECT * from orders;
+ 
+ SELECT * from order_items;
+  
+  
+ SELECT * from payments;
+ 
+
+--   i wanted to get all the products with category name    
+
+--  ex : 1
+ select 
+ products.product_id,
+ products.name as product_name,
+ products.description,
+ products.price,
+ products.stock_quantity,
+ categories.name as category_name
+ 
+ from products 
+ 
+ LEFT JOIN
+ categories ON products.category_id = categories.category_id
+
+output
+ 
+-- product_id	product_name	description	price	stock_quantity	category_name
+-- 1	Smartphone	Latest model smartphone	29999.99	50	Electronics
+-- 2	Laptop	High performance laptop	1999.00	20	Electronics
+-- 3	T-shirt	cotton T-shirt	3999.79	40	clothing
+ 
+
+--  ex : 2....get all the orders with the user details
+
+select 
+orders.order_id,
+users.name as customer_name,
+orders.order_date,
+orders.status
+FROM
+orders
+left JOIN
+users on orders.user_id =  users.user_id;
+
+-- order_id	customer_name	order_date	status
+-- 1	rama	2025-03-27 14:13:27	Pending
+-- 2	venkat	2025-03-27 14:13:27	Completed
+
+
+-- get all the products with stock less than 
+ select product_id, name, stock_quantity from products where stock_quantity < 50;
+
+
+
+--  update
+
+update products set price = price + 500000 where category_id = 1;
+
+select * from products;
+ 
+
+
+
+
+
+
+
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+
+   
+   
+                        
+               
