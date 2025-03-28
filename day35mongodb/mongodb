@@ -1,0 +1,129 @@
+i wanted to see all the databases -> show dbs 
+
+i wnated to create new database -> use <database name>
+if we give above command it will create the database and switch to the database
+
+how to create the collection in mongodb
+
+show dbs 
+use batch
+db.createCollection("users")
+
+I wanted to insert the data into the collection (users -> collection name)
+db.users.insertOne({name: "leena", email: "leena@gmail.com"})
+
+db.users.insertOne({name: "achal", email: "achal@gmail.com"})
+db.users.insertOne({name: "venkatesh", email: "achal@gmail.com"})
+db.users.insertOne({name: "arun", email: "achal@gmail.com"})
+db.users.insertOne({name: "anushkaran", email: "anushkaran@gmail.com"})
+db.users.insertOne({name: "yashwanth", email: "yashwanth@gmail.com"})
+
+db.users.find()
+
+
+
+ db.createCollection("students")
+
+ db.students.insertMany([
+{_id: "venkat_4", name: "rama", age: 30, email: "rama@gmail.com", hobbies: ["music", "sports"], grade: "A"},
+    {_id: "venkat_5", name: "john", age: 25, email: "john@gmail.com", hobbies: ["books", "travel"], grade: "B"},
+    {_id: "venkat_6", name: "jack", age: 35, email: "jack@gmail.com", hobbies: ["sports", "travel"], grade: "C"},
+    {_id: "venkat_7", name: "rama", age: 30, email: "rama@gmail.com", hobbies: ["music", "sports"], grade: "B"},
+    {_id: "venkat_8", name: "john", age: 25, email: "john@gmail.com", hobbies: ["books", "travel"], grade: "C"},
+    {_id: "venkat_9", name: "jack", age: 35, email: "jack@gmail.com", hobbies: ["sports", "travel"], grade: "D"},
+
+ ])
+
+ db.students.find()
+
+
+ //find the users older than 25
+ db.students.find({age : {$gte: 30}})
+
+ //find the users with hobbies array containing "sports"
+ db.students.find({hobbies: "sports"})
+
+
+ //find the users with both "music and sports"
+ db.students.find({hobbies: {$all: ["music", "sports"]}})
+
+ //find the students where age is > 20 and grade is A 
+
+ db.students.find({
+    $and: [
+        {age: {$gt: 20}},
+        {grade: "A"}
+    ]
+ })
+
+
+
+find the students with an A and B grade..
+
+db.students.find({
+    grade: {$in: ["A", "B"]}
+})
+
+
+find the students who don't have grade A
+
+db.students.find({
+    grade: {$ne: "A"}
+});
+
+
+
+
+i wanted to find student with letter start with R
+
+db.students.find({
+name: {$regex: /^r/}
+
+})
+
+
+i wanted to find the students ends with K
+
+
+db.students.find({
+name: {$regex: /k$/}
+
+})
+
+
+sort the students by age in ascending order
+db.students.find().sort({age : 1})
+
+db.students.find().sort({age : -1})
+
+
+sort the students by grade in desc order
+
+
+limit the students
+
+
+skip first 2 students and show the next 3
+
+
+
+find the students with an age > 20 or with grade of A
+
+db.students.find({ $or: [{age: {$gt:34}}, {grade: "C"}]})
+
+
+
+db.students.updateOne({name: "rama"}, {$set: {grade: "A+"}}); update query
+
+
+db.students.updateMany({name: "rama"}, {$set: {grade: "A++"}});
+
+
+
+delete one student
+
+db.students.deleteMany({name: "jack"})
+
+
+delete all the students with grade C
+
