@@ -1,0 +1,227 @@
+use shopdb2025
+
+
+db.products.insertMany([
+    {
+        sku: "LAP12345",
+        name: "Laptop",
+        brand: "Dell",
+        model: "Insprion 15",
+        price: 36000,
+        category: "Electronics",
+        stock: 10,
+        ratings: {avg: 4.5, reviews: 120},
+        discount: {percentage: 10, validTill: new Date("2024-03-05")},
+        tags: ["work", "gaming", "lightweight"],
+        createdAt: new Date(),
+        supplier: {name: "Guvi distributors", contact: "788945454"},
+        warranty: {period: "2 years", type: "Manufacturer"},
+        variants: [
+            {color: "Silver", ram: "8GB", storage: "512GB SSD"},
+            {color: "Black", ram: "16GB", storage: "1TB SSD"},
+        ],
+        shippingDetails: {
+            weight: "2.5kg",
+            dimenssions: {width: "36cm", height: "25cm"},
+            availableRegions: ["USA", "Canada", "Europe"]
+        }
+    },
+
+     {
+        sku: "Smart123",
+        name: "Smartphone",
+        brand: "Samsung",
+        model: "Galaxy 22",
+        price: 50000,
+        category: "Electronics",
+        stock: 25,
+        ratings: {avg: 4.7, reviews: 600},
+        discount: {percentage: 5, validTill: new Date("2024-04-05")},
+        tags: ["camera", "android", "5G"],
+        createdAt: new Date(),
+        supplier: {name: "Mobile Guvi Hub", contact: "987452144"},
+        warranty: {period: "1 year", type: "Retailer"},
+        variants: [
+            {color: "Black", storage: "512GB"},
+            {color: "white", storage: "256GB"},
+        ],
+        shippingDetails: {
+            weight: "200g",
+            dimenssions: {width: "7cm", height: "15cm"},
+            availableRegions: ["USA", "UK", "India"]
+        }
+     },
+
+       {
+        sku: "Smart123",
+        name: "Smartphone",
+        brand: "Samsung",
+        model: "Galaxy 22",
+        price: 50000,
+        category: "Accessories",
+        stock: 25,
+        ratings: {avg: 4.7, reviews: 600},
+        discount: {percentage: 5, validTill: new Date("2024-04-05")},
+        tags: ["camera", "android", "5G"],
+        createdAt: new Date(),
+        supplier: {name: "Mobile Guvi Hub", contact: "987452144"},
+        warranty: {period: "1 year", type: "Retailer"},
+        variants: [
+            {color: "Black", storage: "512GB"},
+            {color: "white", storage: "256GB"},
+        ],
+        shippingDetails: {
+            weight: "200g",
+            dimenssions: {width: "7cm", height: "15cm"},
+            availableRegions: ["USA", "UK", "India"]
+        }
+     },
+         {
+        sku: "CAM12345",
+        name: "canon",
+        brand: "canon",
+        model: "canon HD",
+        price: 60000,
+        category: "Photography",
+        stock: 55,
+        ratings: {avg: 3.7, reviews: 200},
+        discount: {percentage: 15, validTill: new Date("2024-04-06")},
+        tags: ["camera", "photos", "storage"],
+        createdAt: new Date(),
+        supplier: {name: "Camera Guvi Hub", contact: "654784541"},
+        warranty: {period: "2 year", type: "Supplier"},
+        variants: [
+            {color: "Black", storage: "128GB"},
+            {color: "white", storage: "256GB"},
+        ],
+        shippingDetails: {
+            weight: "500g",
+            dimenssions: {width: "19cm", height: "10cm"},
+            availableRegions: ["Japan", "Korea", "India"]
+        }
+     },
+
+])
+
+
+//find the products with the discount > than 10%
+
+db.products.find({"discount.percentage": {$gt: 10}})
+
+//find the products with the stock count between 10 and 50
+
+db.products.find({stock: {$gte: 10, $lte: 50}})
+
+//find the products available in the "INDIA" region 
+
+db.products.find({"shippingDetails.availableRegions" : "USA"})
+
+//find the products that have the specific Tag
+
+db.products.find({tags: "gaming"})
+
+//find the most expensive product
+db.products.find().sort({price: -1}).limit(1)
+
+
+//how to update the products stock count
+db.products.updateOne(
+    {sku: "CAM12345"},
+    {$set: {stock: 15}}
+)
+
+
+//increease the stock for all the products 5
+db.products.updateMany(
+    {},
+    {$inc : {stock: 5}}
+)
+
+
+// remove the product by skud
+db.products.deleteOne({sku: "CAM12345"})
+
+
+//count the number of the products in the category
+db.products.countDocuments({category: "Electronics"})
+
+
+//group products by category and count them
+db.products.aggregate([
+    {$group: {_id: "$category", totalProducts: {$sum: 1}}}
+])
+
+
+//find the products that have the warranty of more than 1 year
+db.products.find({"warranty.period" : {$gt: "1 year}})
+
+
+//find the products that have variants with "Black" color
+db.products.find({"variants.color" : "Black"})
+
+
+// how to retieve top 2 products with the height avg ratings
+db.products.find().sort({"ratings.avg" : -1}).limit(2)
+
+
+//find the products with the reviews greater than 200
+db.products.find({"ratings.reviews" : {$gt: 200}})
+
+
+// find the most expensive product in each brand
+db.products.aggregate([
+    { $group : {_id: "$brand", mostExpensive: {$max: "$price"}}}
+])
+
+// find the most expensive product in each category
+db.products.aggregate([
+    { $group : {_id: "$category", cheapest: {$min: "$price"}}}
+])
+
+
+
+//find avg price of products of each category
+
+db.products.aggregate([
+    {$group: {_id: "$category", avgPrice: {$avg: "$price"}}}
+])
+
+
+
+
+//get the products with the review greater than 50 and cal the avg price of varients.
+
+
+//filter products with more than 50 reviews and Calcualte the avg price of variants for each product
+
+db.products.aggregate([
+    {
+        $match: {"ratings.reviews": {$gt: 50}}
+    },
+
+    {
+        $project: {
+            name: 1,
+            brand: 1,
+            avgPrice: {$avg: "$price"},
+            _id: 0
+        }
+    }
+])
+
+
+
+sorts the products by ratings.avg and return the top 2 products with names and avg ratings
+
+db.products.aggregate([
+    {
+        $sort: {"ratings.avg": -1}
+    },
+
+    {
+        $limit: 2
+    },
+    {
+        $project: {name: 1, "ratings.avg": 1, _id: 0}
+    }
+])

@@ -1,0 +1,165 @@
+
+use 1stApril2025
+db.createCollection("students")
+
+db.students.insertOne({
+    name: "john Doe",
+    age: 21, 
+    gender: "Male",
+    email: "john.doe@gmail.com",
+    phone: "123-456-789",
+    address : "123 main road T nagar",
+    entrollmentDate: new Date("2025-02-02"),
+    major: "Computer Sceience", 
+    GPA: 3.8,
+    active: true
+})
+
+Queries:
+
+1) Find the student by name
+db.students.find({name: "rama"})
+
+
+2) Find all the students who are active
+ db.students.find({active: true});
+
+
+3) Find the students with GPA greater than 3.4
+
+db.students.find({GPA: { $gt: 3.4}})
+
+
+4) Find the students from the spcific city in the address
+db.students.find({"address" : /JK/})
+
+
+5) Calcualte the average GPA of all the students
+db.students.aggregate([
+
+    {$group: {_id: null, averageGPa: {$avg: "$GPA"}}}
+])
+
+6) count the number of active students
+db.students.aggregate([
+    {$match: {name: "Johnson"}},
+    { $count: "activeStudentCount"}
+]);
+
+
+
+7) group the student by major and count them 
+db.students.aggregate([
+    {$group: {_id: "$major", studentCount: {$sum: 1}}}
+])
+
+8) Find the yougest student by age
+
+db.students.aggregate([
+    {$sort: {age: -1}},
+    {$limit: 1}
+])
+
+9) list the students with GPA greater than 3.5 sorted by GPA
+db.students.aggregate([
+    {$match: {GPA: {$gt: 3.5}}},
+    {$sort: {GPA: -1 }}
+
+]);
+
+
+10) Group the students by active status and cal the avg GPA for each group
+
+db.students.aggregate([
+    {$group: {_id: "$active", avgGPA: {$avg: "$GPA"}}}
+])
+
+
+db.students.insertMany([
+{
+    name: "john Doe",
+    age: 21, 
+    gender: "Male",
+    email: "john.doe@gmail.com",
+    phone: "123-456-789",
+    address : "123 main road T nagar",
+    entrollmentDate: new Date("2025-02-02"),
+    major: "Computer Sceience", 
+    GPA: 3.8,
+    active: true
+},
+
+{
+    name: "rama",
+    age: 22, 
+    gender: "Male",
+    email: "rama@gmail.com",
+    phone: "979745454",
+    address : "456 main road, bangalore",
+    entrollmentDate: new Date("2025-02-15"),
+    major: "Biology", 
+    GPA: 4.9,
+    active: true
+},
+
+
+{
+    name: "Johnson",
+    age: 32, 
+    gender: "Male",
+    email: "Johnson@gmail.com",
+    phone: "974646745",
+    address : "Hyderabad",
+    entrollmentDate: new Date("2025-03-10"),
+    major: "Mathematics", 
+    GPA: 4.5,
+    active: false
+},
+
+
+{
+    name: "Prince",
+    age: 29, 
+    gender: "Female",
+    email: "Prince@gmail.com",
+    phone: "789454241",
+    address : "Mumbai",
+    entrollmentDate: new Date("2025-01-19"),
+    major: "Physics", 
+    GPA: 4.5,
+    active: false
+},
+
+
+
+{
+    name: "Johnson",
+    age: 32, 
+    gender: "Male",
+    email: "Johnson@gmail.com",
+    phone: "974646745",
+    address : "Hyderabad",
+    entrollmentDate: new Date("2025-03-10"),
+    major: "Mathematics", 
+    GPA: 4.5,
+    active: false
+},
+
+
+{
+    name: "queen",
+    age: 39, 
+    gender: "Female",
+    email: "queen@gmail.com",
+    phone: "674542412",
+    address : "JK",
+    entrollmentDate: new Date("2025-01-27"),
+    major: "Computer Sceience", 
+    GPA: 4.3,
+    active: true
+}
+
+
+])
+
+

@@ -1,0 +1,277 @@
+Design database for Zen class programme
+
+USERS :-
+
+db.users.insertMany([
+  {username: "Deepak Kumar", email: "deepak@gmail.com", role: "student", batch: "FSD-WD-E-B1", startDate: new Date("2020-08-16")},
+  {username: "Sunil Sharma", email: "sunil@gmail.com", role: "student", batch: "FSD-WD-E-B2", startDate: new Date("2020-10-18")},
+  {username: "Ankit Malav", email: "ankit@gmail.com", role: "student", batch: "FSD-WD-E-B3", startDate: new Date("2020-11-16")}
+])
+
+[
+    {
+        _id: ObjectId('66f3f09b61a786e26fc73bfe'),
+        username: 'Deepak Kumar',
+        email: 'deepak@gmail.com',
+        role: 'student',
+        batch: 'FSD-WD-E-B1',
+        startDate: ISODate('2020-08-16T00:00:00.000Z')
+    },
+    {
+        _id: ObjectId('66f3f09b61a786e26fc73bff'),
+        username: 'Sunil Sharma',
+        email: 'sunil@gmail.com',
+        role: 'student',
+        batch: 'FSD-WD-E-B2',
+        startDate: ISODate('2020-10-18T00:00:00.000Z')
+    },
+    {
+        _id: ObjectId('66f3f09b61a786e26fc73c00'),
+        username: 'Ankit Malav',
+        email: 'ankit@gmail.com',
+        role: 'student',
+        batch: 'FSD-WD-E-B3',
+        startDate: ISODate('2020-11-16T00:00:00.000Z')
+    }
+]
+
+
+CODEKATA :-
+
+db.codekata.insertMany([
+    {user_id: "101", problems_solved : 75}, 
+    {user_id: "201", problems_solved : 55}, 
+    {user_id: "301", problems_solved : 95}
+])
+
+[
+    {
+        _id: ObjectId('66f3f2c161a786e26fc73c01'),
+        user_id: '101',
+        problems_solved: 75
+    },
+    {
+        _id: ObjectId('66f3f2c161a786e26fc73c02'),
+        user_id: '201',
+        problems_solved: 55
+    },
+    {
+        _id: ObjectId('66f3f2c161a786e26fc73c03'),
+        user_id: '301',
+        problems_solved: 95
+    }
+]
+
+
+ATTENDANCE :-
+
+db.attendance.insertMany([
+    {user_id: "101", classDate: new Date("2020-10-15"), status: "present"}, 
+    {user_id: "201", classDate: new Date("2020-10-18"), status: "absent"},
+    {user_id: "301", classDate: new Date("2020-11-16"), status: "absent"}
+])
+
+[
+    {
+        _id: ObjectId('66f3f60e61a786e26fc73c04'),
+        user_id: '101',
+        classDate: ISODate('2020-10-15T00:00:00.000Z'),
+        status: 'present'
+    },
+    {
+        _id: ObjectId('66f3f60e61a786e26fc73c05'),
+        user_id: '201',
+        classDate: ISODate('2020-10-18T00:00:00.000Z'),
+        status: 'absent'
+    },
+    {
+        _id: ObjectId('66f3f60e61a786e26fc73c06'),
+        user_id: '301',
+        classDate: ISODate('2020-11-16T00:00:00.000Z'),
+        status: 'absent'
+    }
+]
+
+
+TOPICS :- 
+
+db.topics.insertMany([
+    {user_id: "101", title: "REACT", Date: new Date("2020-08-18")},
+    {user_id: "201", title: "JAVASCRIPT", Date: new Date("2020-10-24")},
+    {user_id: "301", title: "NODEJS", Date: new Date("2020-11-20")}
+])
+
+[
+    {
+        _id: ObjectId('66f3faa261a786e26fc73c07'),
+        user_id: '101',
+        title: 'REACT',
+        Date: ISODate('2020-08-18T00:00:00.000Z')
+    },
+    {
+        _id: ObjectId('66f3faa261a786e26fc73c08'),
+        user_id: '201',
+        title: 'JAVASCRIPT',
+        Date: ISODate('2020-10-24T00:00:00.000Z')
+    },
+    {
+        _id: ObjectId('66f3faa261a786e26fc73c09'),
+        user_id: '301',
+        title: 'NODEJS',
+        Date: ISODate('2020-11-20T00:00:00.000Z')
+    }
+]
+
+
+TASKS :- 
+
+db.tasks.insertMany([
+    {topics_id: "S104", user_id: "101", title: "REACT", submission_date: new Date("2020-10-31"), submitted: true},
+    {topics_id: "S103", user_id: "201", title: "JAVASCRIPT", submission_date: new Date("2020-10-22"), submitted: false},
+    {topics_id: "S105", user_id: "301", title: "NODEJS", submission_date: new Date("2020-11-28"), submitted: true}
+])
+
+[
+    {
+        _id: ObjectId('66f428fa0f8fa8eb8cc73bfb'),
+        topics_id: 'S104',
+        user_id: '101',
+        title: 'REACT',
+        submission_date: ISODate('2020-10-31T00:00:00.000Z'),
+        submitted: true
+    },
+    {
+        _id: ObjectId('66f428fa0f8fa8eb8cc73bfc'),
+        topics_id: 'S103',
+        user_id: '201',
+        title: 'JAVASCRIPT',
+        submission_date: ISODate('2020-10-22T00:00:00.000Z'),
+        submitted: false
+    },
+    {
+        _id: ObjectId('66f428fa0f8fa8eb8cc73bfd'),
+        topics_id: 'S105',
+        user_id: '301',
+        title: 'NODEJS',
+        submission_date: ISODate('2020-11-28T00:00:00.000Z'),
+        submitted: true
+    }
+]
+
+
+COMPANY DRIVES :-
+
+db.companyDrives.insertMany([
+    {company_name: "Guvi", Date: new Date("2020-10-18"), students: [ ObjectId('66f3faa261a786e26fc73c01'),  ObjectId('66f3faa261a786e26fc73c02')]}, 
+    {company_name: "Google", Date: new Date("2020-11-28"), students: [ObjectId('66f3faa261a786e26fc73c01'), ObjectId('66f3faa261a786e26fc73c02')]}, 
+    {company_name: "Microsoft", Date: new Date("2020-11-12"), students: [ObjectId('66f3faa261a786e26fc73c03'), ObjectId('66f3faa261a786e26fc73c01')]}
+])
+
+[
+    {
+        _id: ObjectId('66f401dc61a786e26fc73c0d'),
+        company_name: 'Guvi',
+        Date: ISODate('2020-10-18T00:00:00.000Z'),
+        students: [
+            ObjectId('66f3faa261a786e26fc73c01'),
+            ObjectId('66f3faa261a786e26fc73c02')
+        ]
+    },
+    {
+        _id: ObjectId('66f401dc61a786e26fc73c0e'),
+        company_name: 'Google',
+        Date: ISODate('2020-11-28T00:00:00.000Z'),
+        students: [
+            ObjectId('66f3faa261a786e26fc73c01'),
+            ObjectId('66f3faa261a786e26fc73c02')
+        ]
+    },
+    {
+        _id: ObjectId('66f401dc61a786e26fc73c0f'),
+        company_name: 'Microsoft',
+        Date: ISODate('2020-11-12T00:00:00.000Z'),
+        students: [
+            ObjectId('66f3faa261a786e26fc73c03'),
+            ObjectId('66f3faa261a786e26fc73c01')
+        ]
+    }
+]
+
+
+MENTORS :- 
+
+db.mentors.insertMany([
+    {name: "Venkat", specialization: "FULL STACK DEVLOPER", mentee_count: 10}, 
+    {name: "Mohan", specialization: "DATA ANYLIST", mentee_count: 16}, 
+    {name: "Vinod", specialization: "BACKEND DEVLOPER", mentee_count: 20 }
+])
+
+[
+    {
+        _id: ObjectId('66f41dd80f8fa8eb8cc73bf8'),
+        name: 'Venkat',
+        specialization: 'FULL STACK DEVLOPER',
+        mentee_count: 10
+    },
+    {
+        _id: ObjectId('66f41dd80f8fa8eb8cc73bf9'),
+        name: 'Mohan',
+        specialization: 'DATA ANYLIST',
+        mentee_count: 16
+    },
+    {
+        _id: ObjectId('66f41dd80f8fa8eb8cc73bfa'),
+        name: 'Vinod',
+        specialization: 'BACKEND DEVLOPER',
+        mentee_count: 20
+    }
+]
+
+
+
+1) Find all the topics and tasks which are thought in the month of October
+
+db.topics.find( { Date: { $gte: new Date("2020-10-01"), $lt: new Date("2020-11-01")} } )
+
+db.tasks.find( { submission_date: { $gte: new Date("2020-10-01"), $lt: new Date("2020-11-01")} } )
+
+
+2) Find all the company drives which appeared between 15 oct-2020 and 31-oct-2020
+
+db.companyDrives.find({Date: {$gt: new Date("2020-10-15"), $lt: new Date("2020-10-31")}})
+
+
+3) Find all the company drives and students who are appeared for the placement.
+
+const drives = db.companyDrives.find().toArray();
+
+const studentsIds = drives.map(drive => drive.students);
+
+const studentsInfo = db.users.find({_id: { $in: studentsIds }}).toArray();
+
+const drivesWithStudents = drives.map(drive => {
+    return {
+        ...drive,
+        students_info: studentsInfo.filter(students => drive.students.includes(students._id))
+    };
+});
+
+
+
+4) Find the number of problems solved by the user in codekata
+
+db.codekata.aggregate([{ $group: { _id: "$user_id", total_solved: { $sum: "$problems_solved" } } }]);
+
+
+5) Find all the mentors with who has the mentee's count more than 15
+
+db.mentors.find({mentee_count: {$gt: 15}})
+
+
+6) Find the number of users who are absent and task is not submitted  between 15 oct-2020 and 31-oct-2020
+
+const absentUsers = db.attendance.find({status: "absent", classDate: {$gt: new Date("2020-10-15"), $lt: new Date("2020-10-31")}}).map(a => a.user_id)
+
+const notSubmittedTasks = db.tasks.find({submission_date: { $gte: new Date("2020-10-15"), $lte: new Date("2020-10-31") }, submitted: false}).map(t => t.topics_id);
+
+const absentAndNotSubmitted = db.users.find({_id: { $in: absentUsers }, "tasks.topics_id": { $in: notSubmittedTasks }}).count();

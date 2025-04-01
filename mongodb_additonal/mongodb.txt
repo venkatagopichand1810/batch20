@@ -1,0 +1,12 @@
+how to setup mongodb
+mongosh
+mongodb compass
+mongodb server
+
+how to create DB, how to collection, diff collection and documents
+
+how to inserOne data
+how to insertMany data
+how to query data find
+update 
+delete
