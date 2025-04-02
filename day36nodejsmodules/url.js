@@ -1,0 +1,21 @@
+// const url = require("url");
+
+// const myUrl = "https://www.google.com/search?q=images&sca_esv=4f0a5c27e1f09180&sxsrf=AHTn8zqbT4qZv1vlSGO_3zDJSSvJC-X9jA%3A1743606795452&source=hp&ei=C1TtZ-bUGdHr1e8PrcPbyQs&iflsig=ACkRmUkAAAAAZ-1iG91px8I1MHM68j1ytDywbyz75Wet&ved=0ahUKEwimhq290bmMAxXRdfUHHa3hNrkQ4dUDCBo&uact=5&oq=images&gs_lp=Egdnd3Mtd2l6IgZpbWFnZXMyChAjGIAEGCcYigUyBBAjGCcyChAjGIAEGCcYigUyCxAAGIAEGJECGIoFMggQABiABBixAzIIEAAYgAQYsQMyCBAAGIAEGLEDMgUQABiABDIIEAAYgAQYsQMyCBAAGIAEGLEDSPoMUNYBWKgMcAN4AJABAJgBpwKgAcsKqgEFMC41LjK4AQPIAQD4AQGYAgqgAvQKqAIKwgIHECMYJxjqAsICDRAuGNEDGMcBGCcY6gLCAg4QLhiABBixAxjRAxjHAcICERAuGIAEGLEDGNEDGIMBGMcBwgILEAAYgAQYsQMYgwHCAhQQLhiABBiRAhixAxjRAxjHARiKBcICDhAuGIAEGLEDGIMBGIoFwgIOEAAYgAQYsQMYgwEYigWYAwjxBU_sa8ZrElSvkgcFMy41LjKgB6BHsgcFMC41LjK4B-QK&sclient=gws-wiz";
+
+// // parse the URL into components
+// const paresedURL = url.parse(myUrl);
+
+// console.log(paresedURL)
+
+
+const url = require("url");
+
+const myUrl = "https://www.google.com/search?q=images&sca_esv=4f0a5c27e1f09180&sxsrf=AHTn8zqbT4qZv1vlSGO_3zDJSSvJC-X9jA%3A1743606795452&source=hp&ei=C1TtZ-bUGdHr1e8PrcPbyQs&iflsig=ACkRmUkAAAAAZ-1iG91px8I1MHM68j1ytDywbyz75Wet&ved=0ahUKEwimhq290bmMAxXRdfUHHa3hNrkQ4dUDCBo&uact=5&oq=images&gs_lp=Egdnd3Mtd2l6IgZpbWFnZXMyChAjGIAEGCcYigUyBBAjGCcyChAjGIAEGCcYigUyCxAAGIAEGJECGIoFMggQABiABBixAzIIEAAYgAQYsQMyCBAAGIAEGLEDMgUQABiABDIIEAAYgAQYsQMyCBAAGIAEGLEDSPoMUNYBWKgMcAN4AJABAJgBpwKgAcsKqgEFMC41LjK4AQPIAQD4AQGYAgqgAvQKqAIKwgIHECMYJxjqAsICDRAuGNEDGMcBGCcY6gLCAg4QLhiABBixAxjRAxjHAcICERAuGIAEGLEDGNEDGIMBGMcBwgILEAAYgAQYsQMYgwHCAhQQLhiABBiRAhixAxjRAxjHARiKBcICDhAuGIAEGLEDGIMBGIoFwgIOEAAYgAQYsQMYgwEYigWYAwjxBU_sa8ZrElSvkgcFMy41LjKgB6BHsgcFMC41LjK4B-QK&sclient=gws-wiz";
+
+// parse the URL into components
+const paresedURL = url.parse(myUrl);
+
+console.log(paresedURL.query)
+console.log(paresedURL.protocol)
+console.log(paresedURL.pathname)
+console.log(paresedURL.search)

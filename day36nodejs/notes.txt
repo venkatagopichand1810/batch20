@@ -1,0 +1,30 @@
+Node js is the runtime envrionment that allows us to execute the
+javascript code outside of the browser. 
+
+key features of node js
+
+1) asynchronous and non-blocking 
+2) cross platform -> windows, linux, macos
+3) Fast execution -> v8 engine
+
+chat apps,gaminng servers, live streaming.....node js
+
+
+if we wanted to build the backend applications from skartch....
+
+first step is we have to create the package.json file
+
+npm init ...
+npm init -y
+
+
+when i use npm install package_name.,, it is going to install all the required modules and it is going to place in node_modules folder
+
+
+step to create
+
+npm init -y
+npm install axios
+npm install --save-dev nodemon
+    
+    "dev": "nodemon app.js"
