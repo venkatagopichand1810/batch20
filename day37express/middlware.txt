@@ -1,0 +1,12 @@
+middleware refers to the functions that have access to the request, response and next function.
+
+middleware functions are used to execute code, modify requests and responses, and control the flow
+
+
+Types of middleware in express js (built in middlewares)
+
+1) Application level middleware, define using app.use() or app.get() or app.post() or app.patch() or app.put()
+
+2) Router level middlware -> works with express.Router()
+
+3) build in middlwares...express.json(), when we wanted to serve statis files express.static()
