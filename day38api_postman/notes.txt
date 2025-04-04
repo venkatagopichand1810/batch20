@@ -1,0 +1,11 @@
+get method -> to get the data from the backend
+
+post method -> to post the data, register 
+
+
+put method -> if i wanted to update the entire record or data put method
+
+delete method -> if i wanted to delete the record
+
+
+patch method->if i wanted partial update
