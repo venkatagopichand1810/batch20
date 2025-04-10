@@ -1,0 +1,9 @@
+npm init -y
+npm install express mongoose dotenv bcryptjs jsonwebtoken nodemailer cors nodemon
+
+update the package.json
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon app.js"
+  },
