@@ -1,0 +1,26 @@
+
+.student-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid orange;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.student-form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.student-form button {
+    padding: 10px;
+    background-color: rgb(196, 163, 103);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
